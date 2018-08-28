@@ -26,13 +26,13 @@ app.use((req, res, next) => {
   
 } );
 
-app.use((req, res, next) => {
-  var now = new Date().toString();
-  var log = `${now}: ${req.method} ${req.url}`;
+// app.use((req, res, next) => {
+//   var now = new Date().toString();
+//   var log = `${now}: ${req.method} ${req.url}`;
 
-  res.render('maintenance.hbs');
+//   res.render('maintenance.hbs');
 
-});
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -57,6 +57,14 @@ app.get('/about', (req,res) => {
     pageTitle: 'About Page'
   });
 });
+
+
+app.get('/project', (req, res) => {
+  res.render('project.hbs', {
+    pageTitle: 'Project'
+  });
+});
+
 
 app.get('/bad', (req,res) => {
 
